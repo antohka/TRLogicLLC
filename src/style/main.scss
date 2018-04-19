@@ -1,0 +1,126 @@
+@import 'fonts.scss';
+@import 'variable.scss';
+@import 'base.scss';
+
+body{
+  position: relative;
+  margin: 0 auto;
+  overflow-x: hidden;
+  z-index: -1;
+}
+body::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: calc((100vw - 1024px)/2);
+  height: 110%;
+  background-color: #fff;
+  z-index: 5;
+}
+body::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: calc((100vw - 1024px)/2);
+  height: 110%;
+  background-color: #fff;
+  z-index: 5;
+}
+.content{
+  position: relative;
+  max-width: 1024px;
+  min-height: calc(100vh - 70px);
+  margin: 40px auto 0;
+  padding-top: 30px;
+  box-sizing: border-box;
+  background-color: #cfe2f3;
+  z-index: 1;
+  &__inner{
+    position: relative;
+    width: 95%;
+    height: 100px;
+    margin: auto;
+    background-color: #5f9ea0;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    line-height: 100px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    animation: top-block-start .5s linear;
+  }
+  &__inner:hover{
+    background-color: #5f9ec5;
+  }
+  &__center{
+    position: relative;
+    max-width: 95%;
+    min-height: calc(100vh - 200px);
+    margin: 0 auto;
+    background-color: #cfe2f3;
+    z-index: 0;
+    .pink{
+      position: absolute;
+      top: 35px;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      height: 80%;
+      background-color: #dad2e9;
+    }
+  }
+}
+.fixed{
+  position: fixed;
+  top: 40px;
+  width: 100%;
+  max-width: 1024px;
+  height: 100px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 1;
+  animation: top-block-scroll .5s linear;
+}
+.content::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #42f4d1;
+  z-index: 3;
+  transition: left 1s ease-out;
+}
+.content::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 1024px;
+  width: 300px;
+  height: 100%;
+  background-color: #42f4d1;
+  z-index: 3;
+  transition: left 1s ease-out;
+}
+.content.shift-l:before{
+  left: 0;
+}
+.content.shift-r:after{
+  left: 724px;
+}
+@media (max-width: 980px) {
+  .content::after{
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+  .content::before{
+    width: 200px;
+  }
+}

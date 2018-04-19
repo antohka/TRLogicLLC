@@ -1,0 +1,1 @@
+$(document).ready(function(){var n=$(".content__inner");$(window).scroll(function(){$(this).scrollTop()>30?n.addClass("fixed"):$(this).scrollTop()<=30&&n.removeClass("fixed")});var t=$(".content__inner");t.click(function(){$(".content").toggleClass("shift-l"),$(".content").toggleClass("shift-r")})});
